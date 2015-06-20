@@ -1,0 +1,12 @@
+#!/bin/bash
+
+# Opens a new application at specified workspace
+# Uses $PWD as working directory
+
+workspace=$1
+shift
+
+# See http://superuser.com/a/178592 for this fancy construct.
+i3-msg "workspace $workspace; exec --no-startup-id \"cd $(printf "%q " "$PWD") && $(printf "%q " "$@")\""
+
+
