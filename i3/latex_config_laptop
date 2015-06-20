@@ -1,0 +1,145 @@
+// vim:ts=4:sw=4:et
+{
+    // splitv split container with 2 children
+    "border": "normal",
+    "floating": "auto_off",
+    "layout": "splitv",
+    "percent": 0.54,
+    "type": "con",
+    "nodes": [
+        {
+            // splith split container with 2 children
+            "border": "normal",
+            "floating": "auto_off",
+            "layout": "splith",
+            "percent": 0.26,
+            "type": "con",
+            "nodes": [
+                {
+                    // tabbed split container with 2 children
+                    "border": "normal",
+                    "floating": "auto_off",
+                    "layout": "tabbed",
+                    "percent": 0.5,
+                    "type": "con",
+                    "nodes": [
+                        {
+                            "border": "normal",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 436,
+                               "width": 724,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "evince_vim_dbus.py",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                                  "class": "^XTerm$",
+                                  "instance": "^xterm$",
+                                  "title": "^evince_vim_dbus\\.py$"
+                               // "transient_for": "^$"
+                               }
+                            ],
+                            "type": "con"
+                        },
+                        {
+                            "border": "normal",
+                            "current_border_width": 2,
+                            "floating": "auto_off",
+                            "geometry": {
+                               "height": 436,
+                               "width": 724,
+                               "x": 0,
+                               "y": 0
+                            },
+                            "name": "latexmk",
+                            "percent": 0.5,
+                            "swallows": [
+                               {
+                                  "class": "^XTerm$",
+                                  "instance": "^xterm$",
+                                  "title": "^latexmk$"
+                               // "transient_for": "^$"
+                               }
+                            ],
+                            "type": "con"
+                        }
+                    ]
+                }
+            //,
+            //    {
+            //        "border": "normal",
+            //        "current_border_width": 2,
+            //        "floating": "auto_off",
+            //        "geometry": {
+            //           "height": 436,
+            //           "width": 724,
+            //           "x": 0,
+            //           "y": 0
+            //        },
+            //        "name": "gerw@kunigunde: /tmp",
+            //        "percent": 0.5,
+            //        "swallows": [
+            //           {
+            //              "class": "^XTerm$",
+            //              "instance": "^xterm$"
+            //           // "title": "^gerw\\@kunigunde"
+            //           // "transient_for": "^$"
+            //           }
+            //        ],
+            //        "type": "con"
+            //    }
+            ]
+        },
+        {
+            "border": "normal",
+            "current_border_width": 2,
+            "floating": "auto_off",
+            "geometry": {
+               "height": 803,
+               "width": 1412,
+               "x": 0,
+               "y": 0
+            },
+            "name": "test.tex (/tmp) - TEST",
+            "percent": 0.74,
+            "swallows": [
+               {
+                  "class": "^Gvim$",
+                  "instance": "^gvim$"
+               // "title": "^test\\.tex\\ \\(\\/tmp\\)\\ \\-\\ TEST$",
+               // "transient_for": "^$",
+               // "window_role": "^vim\\-12445\\-856977903\\-1434744452$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    "border": "normal",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 600,
+       "width": 600,
+       "x": 0,
+       "y": 0
+    },
+    "name": "test.pdf",
+    "percent": 0.46,
+    "swallows": [
+       {
+          "class": "^Evince$",
+          "instance": "^evince$"
+       // "title": "^test\\.pdf$",
+       // "transient_for": "^$"
+       }
+    ],
+    "type": "con"
+}
+
