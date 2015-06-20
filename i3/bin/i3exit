@@ -1,0 +1,84 @@
+#!/bin/sh
+
+# The lock program
+lock() {
+	i3lock
+}
+
+distro=`lsb_release -cs`
+
+case "$distro" in
+	precise)
+		# Ubuntu 12.04
+		suspend() {
+			dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend
+		}
+		hibernate() {
+			dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Hibernate
+		}
+		reboot() {
+			dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart
+		}
+		shutdown() {
+			dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop
+		}
+		;;
+	trusty)
+		# Ubuntu 14.04
+		suspend() {
+			dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
+		}
+		hibernate() {
+			dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Hibernate" boolean:true
+		}
+		reboot() {
+			dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
+		}
+		shutdown() {
+			dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
+		}
+		;;
+	# TODO:
+	# Bootle)
+	# 	# openSUSE 13.1
+	# 	;;
+	*)
+		# Only provide shutdown via "i3-msg exit"
+		suspend() { :; }
+		hibernate() { :; }
+		reboot() { :; }
+		shutdown() {
+			i3-msg exit
+		}
+		;;
+esac
+
+case "$1" in
+	lock)
+		lock
+		;;
+	logout)
+		i3-msg exit
+		;;
+	lock-suspend)
+		lock && suspend
+		;;
+	suspend)
+		suspend
+		;;
+	# I do not want to hibernate.
+	# hibernate)
+	# 	lock && hibernate
+	# 	;;
+	reboot)
+		reboot
+		;;
+	shutdown)
+		shutdown
+		;;
+	*)
+		echo "Usage: $0 {lock|logout|lock-suspend|suspend|reboot|shutdown}"
+		exit 2
+esac
+
+exit 0
