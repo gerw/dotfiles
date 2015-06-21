@@ -114,6 +114,10 @@ bindsym $mod+8 workspace number 8
 bindsym $mod+9 workspace number 9
 bindsym $mod+0 workspace number 0
 
+# Already start on "1: firefox"
+exec --no-startup-id i3-msg "workspace 1: firefox"
+
+# Some keys to change to prev/next workspace
 bindsym Ctrl+Shift+Right workspace next
 bindsym Ctrl+Shift+l workspace next
 bindsym Ctrl+Shift+Left workspace prev
