@@ -1,3 +1,5 @@
+# Faster key repetition.
 xset r rate 220 40
 
+# Use gnome-keyring-daemon for managing gpg
 export $(gnome-keyring-daemon --start --components=gpg)
