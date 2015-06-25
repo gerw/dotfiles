@@ -1,0 +1,3 @@
+[submodule "solarized_xresources"]
+	path = solarized_xresources
+	url = git@github.com:gerw/solarized_xresources.git
