@@ -39,9 +39,16 @@ case "$distro" in
 		}
 		;;
 	# TODO:
-	# Bootle)
-	# 	# openSUSE 13.1
-	# 	;;
+	Bottle)
+		# openSUSE 13.1
+		shutdown() {
+			dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit --type=method_call /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Stop
+		}
+		suspend() { :; }
+		hibernate() { :; }
+		reboot() { :; }
+			dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit --type=method_call /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart
+		;;
 	*)
 		# Only provide shutdown via "i3-msg exit"
 		suspend() { :; }
