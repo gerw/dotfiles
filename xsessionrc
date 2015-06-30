@@ -1,5 +1,19 @@
 # Faster key repetition.
 xset r rate 220 40
 
+
+# On Ubuntu 12.04, we have a weird situation:
+# on invocation of xsessionrc, gnome-keyring-daemon is
+# already started, but something breaks if we load
+# additional components now.
+# The used hack:
+# - Already export the bash variables
+# - Start the components later
+
 # Use gnome-keyring-daemon for managing gpg
-export $(gnome-keyring-daemon --start --components=gpg,ssh,pkcs11,secrets)
+SSH_AUTH_SOCK="$GNOME_KEYRING_CONTROL/ssh"
+GPG_AGENT_INFO="$GNOME_KEYRING_CONTROL/gpg:0:1"
+
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export SSH_AUTH_SOCK
