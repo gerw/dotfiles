@@ -1,0 +1,34 @@
+! xterm*font: *-fixed-*-*-*-25-*
+!
+! XTerm.VT100.font: -*-terminus-*-*-*-14-*-*-*-*-*-*-*
+
+! xterm*vt100.initialFont:
+!
+XTerm.VT100.renderFont: true
+XTerm.VT100.faceName: Monospace
+
+! Face size for normal:
+XTerm.VT100.faceSize:  11
+! Face sizes for alternates:
+! Unreadable:
+XTerm.VT100.faceSize1:  7
+! Tiny:
+XTerm.VT100.faceSize2:  9
+! Small:
+XTerm.VT100.faceSize3:  10
+! Medium:
+XTerm.VT100.faceSize4:  13
+! Large:
+XTerm.VT100.faceSize5:  15
+! Huge:
+XTerm.VT100.faceSize6:  19
+
+! Colors:
+! *background: PapayaWhip
+! *foreground: black
+*customization: color
+
+
+
+
+XTerm*SaveLines: 5000
