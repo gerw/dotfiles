@@ -1,0 +1,43 @@
+#!/bin/sh
+
+# Get ID of active window
+WID=$(xdotool getactivewindow)
+
+# We use the class of the window, seems to be easiest.
+# Other possibilities:
+# - PID, not so easy for remote windows
+# - Title, ambigious
+CLASS=$(xprop -id $WID WM_CLASS)
+
+# Check, if it is Gvim
+NAME=$(echo "$CLASS" | grep '"gvim", *"Gvim"' -o)
+
+echo $NAME >> /tmp/focus.log
+
+
+# Is it GVIM?
+if [ "x$NAME" != 'x' ] ; then
+	case $1 in
+		left)
+			command=h
+			# Another possibility:
+			# gvim --servername GVIM --remote-send ':call Focus('left', 'h')<cr>'
+			# And try to get server by
+			# xdotool getactivewindow getwindowname
+			# xdotool getwindowname $WID
+			;;
+		right)
+			command=l
+			;;
+		up)
+			command=k
+			;;
+		down)
+			command=j
+			;;
+	esac
+	xdotool key --window $WID "Escape+g+w+$command"
+else
+	# Otherwise, switch window
+	i3-msg "focus $@"
+fi
