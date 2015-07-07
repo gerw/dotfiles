@@ -1,4 +1,5 @@
 #!/bin/sh
+# Idea due to https://faq.i3wm.org/question/3042/change-the-focus-of-windows-within-vim-and-i3-with-the-same-keystroke/
 
 # Get ID of active window
 WID=$(xdotool getactivewindow)
@@ -7,13 +8,15 @@ WID=$(xdotool getactivewindow)
 # Other possibilities:
 # - PID, not so easy for remote windows
 # - Title, ambigious
-CLASS=$(xprop -id $WID WM_CLASS)
+CLASS=$(xprop -id "$WID" WM_CLASS)
 
 # Check, if it is Gvim
 NAME=$(echo "$CLASS" | grep '"gvim", *"Gvim"' -o)
 
-echo $NAME >> /tmp/focus.log
-
+# Some debugging 'features'
+# echo $WID, $CLASS >> /tmp/focus.log
+# echo $NAME >> /tmp/focus.log
+# env | grep lib >> /tmp/focus.log
 
 # Is it GVIM?
 if [ "x$NAME" != 'x' ] ; then
