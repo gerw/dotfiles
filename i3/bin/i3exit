@@ -46,8 +46,9 @@ case "$distro" in
 		}
 		suspend() { :; }
 		hibernate() { :; }
-		reboot() { :; }
+		reboot() {
 			dbus-send --system --print-reply --dest=org.freedesktop.ConsoleKit --type=method_call /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart
+		}
 		;;
 	*)
 		# Only provide shutdown via "i3-msg exit"
