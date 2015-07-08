@@ -10,10 +10,15 @@ xset r rate 220 40
 # - Already export the bash variables
 # - Start the components later
 
-# Use gnome-keyring-daemon for managing gpg
-SSH_AUTH_SOCK="$GNOME_KEYRING_CONTROL/ssh"
-GPG_AGENT_INFO="$GNOME_KEYRING_CONTROL/gpg:0:1"
+if [ "x$GNOME_KEYRING_CONTROL" = "x" ]; then
+	# keyring not started => start it now
+	export $(gnome-keyring-daemon --start --components=gpg,ssh,pkcs11,secrets)
+else
+	# Use gnome-keyring-daemon for managing gpg
+	SSH_AUTH_SOCK="$GNOME_KEYRING_CONTROL/ssh"
+	GPG_AGENT_INFO="$GNOME_KEYRING_CONTROL/gpg:0:1"
 
-export GPG_AGENT_INFO
-export GNOME_KEYRING_CONTROL
-export SSH_AUTH_SOCK
+	export GPG_AGENT_INFO
+	export GNOME_KEYRING_CONTROL
+	export SSH_AUTH_SOCK
+fi
