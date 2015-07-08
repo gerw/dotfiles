@@ -2,5 +2,8 @@
 
 cd $(dirname $0)
 
-# Todo: use light on MRZ computers
-cat Xresources solarized_xresources/Xresources.dark > ../.Xresources
+if [ "x$HOST" = "xcantor" ]; then
+	cat Xresources solarized_xresources/Xresources.light > ../.Xresources
+else
+	cat Xresources solarized_xresources/Xresources.dark > ../.Xresources
+fi
