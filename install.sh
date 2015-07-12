@@ -3,9 +3,9 @@
 cd "$(dirname "$0")"
 
 if [ "x$HOST" = "xcantor" ]; then
-	cat Xresources solarized_xresources/Xresources.light > "$HOME/.Xresources"
+	cpp <( cat Xresources solarized_xresources/Xresources.light ) "$HOME/.Xresources"
 else
-	cat Xresources solarized_xresources/Xresources.dark > "$HOME/.Xresources"
+	cpp <( cat Xresources solarized_xresources/Xresources.dark ) "$HOME/.Xresources"
 fi
 
 cd "$HOME"
