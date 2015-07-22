@@ -60,6 +60,13 @@ bindsym $mod+k exec "i3_vim_focus up"
 bindsym $mod+b exec "i3_vim_focus down"
 bindsym $mod+m exec "i3_vim_focus up"
 
+
+bindsym $mod+Shift+Ctrl+j focus down
+bindsym $mod+Shift+Ctrl+k focus up
+bindsym $mod+Shift+Ctrl+h focus left
+bindsym $mod+Shift+Ctrl+l focus right
+
+
 # alternatively, you can use the cursor keys:
 # bindsym $mod+Left focus left # This is backward in firefox
 bindsym $mod+Down exec "i3_vim_focus down"
