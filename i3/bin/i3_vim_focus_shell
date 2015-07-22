@@ -1,8 +1,14 @@
 #!/bin/sh
 # Idea due to https://faq.i3wm.org/question/3042/change-the-focus-of-windows-within-vim-and-i3-with-the-same-keystroke/
 
+
+echo "=====================" >> /tmp/focus.log
+
+date '+%s.%N' >> /tmp/focus.log
 # Get ID of active window
 WID=$(xdotool getactivewindow)
+
+date '+%s.%N' >> /tmp/focus.log
 
 # We use the class of the window, seems to be easiest.
 # Other possibilities:
@@ -10,16 +16,28 @@ WID=$(xdotool getactivewindow)
 # - Title, ambigious
 CLASS=$(xprop -id "$WID" WM_CLASS)
 
+date '+%s.%N' >> /tmp/focus.log
+
+WINDOWHOST=$(xprop -id "$WID" WM_CLIENT_MACHINE | grep -o '".*"' )
+
+date '+%s.%N' >> /tmp/focus.log
+
 # Check, if it is Gvim
 NAME=$(echo "$CLASS" | grep '"gvim", *"Gvim"' -o)
 
+date '+%s.%N' >> /tmp/focus.log
+
 # Some debugging 'features'
 # echo $WID, $CLASS >> /tmp/focus.log
+echo $HOST, $WINDOWHOST >> /tmp/focus.log
 # echo $NAME >> /tmp/focus.log
 # env | grep lib >> /tmp/focus.log
 
-# Is it GVIM?
-if [ "x$NAME" != 'x' ] ; then
+date '+%s.%N' >> /tmp/focus.log
+
+# Is it GVIM run on $HOST?
+if [ "x$NAME" != 'x' ] && [ "x\"$HOST\"" = "x$WINDOWHOST" ] ; then
+# if [ "x$NAME" != 'x' ] ; then
 	case $1 in
 		left)
 			command=h
@@ -39,8 +57,12 @@ if [ "x$NAME" != 'x' ] ; then
 			command=j
 			;;
 	esac
-	xdotool key --window $WID "Escape+g+w+$command"
+	xdotool key --clearmodifiers --window $WID "Escape"
+	sleep 0.01
+	xdotool key --clearmodifiers --window $WID "g+w+$command"
 else
 	# Otherwise, switch window
 	i3-msg "focus $@"
 fi
+
+date '+%s.%N' >> /tmp/focus.log
