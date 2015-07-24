@@ -35,10 +35,21 @@ int main(int argc, char *argv[]) {
 	xdo_get_window_property(xdo, window_ret, "WM_CLASS", &class, NULL, NULL, NULL);
 	xdo_get_window_property(xdo, window_ret, "WM_CLIENT_MACHINE", &host, NULL, NULL, NULL);
 
-	fprintf(stderr, "Class: %s\n", class);
-	fprintf(stderr, "Host: %s\n", host);
+	// Some debug output
+	if( class ) {
+		fprintf(stderr, "Class: \"%s\"\n", class);
+	}
+	else {
+		fprintf(stderr, "Class: NULL\n");
+	}
+	if( host ) {
+		fprintf(stderr, "Host: \"%s\"\n", host);
+	}
+	else {
+		fprintf(stderr, "Host: NULL\n");
+	}
 
-	if( strcmp(class, "gvim") == 0 ) {
+	if( class && strcmp(class, "gvim") == 0 ) {
 		// If it is vim, send a keystroke.
 		fprintf(stderr, "VIM!\n", class);
 
