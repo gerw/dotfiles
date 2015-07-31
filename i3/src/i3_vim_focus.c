@@ -53,7 +53,11 @@ int main(int argc, char *argv[]) {
 		// If it is vim, send a keystroke.
 		fprintf(stderr, "VIM!\n", class);
 
-		strcpy(cmd, "Escape+g+w+");
+		strcpy(cmd, "Escape");
+
+		xdo_send_keysequence_window(xdo, window_ret, cmd, 0);
+
+		strcpy(cmd, "g+w+");
 
 		strcat(cmd, (argv[1][0] == 'l')? "h" :
 				(argv[1][0] == 'd')? "j" :
