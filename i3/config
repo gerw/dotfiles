@@ -219,6 +219,8 @@ bindsym XF86AudioMute exec "amixer set Speaker unmute ; amixer set Headphone unm
 # Assign the plot windows which matlabs opens when saving figures to the scratchpad.
 assign [class="^MATLAB R" instance="^sun-awt-X11-XWindowPeer$"] → scratchpad
 
+# Let paraview windows (issued by scripts) float around.
+for_window [class="^vtk$" instance="^ParaView$"] floating enable
 
 # Create dummy matlab figure
 bindsym $mod+shift+f exec --no-startup-id create_placeholder --name "Matlab Figure" --class "com-mathworks-util-PostVMInit|MATLAB R" --instance "^sun-awt-X11-XFramePeer$"
