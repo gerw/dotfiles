@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Drop this script in /etc/NetworkManager/dispatcher.d/
+# It will (en|dis)able wlan if ethernet is (dis|en)abled
+
+if [ "$1" = "eth0" ]; then
+	case "$2" in
+		up)
+			# Ethernet turned on, so disable wifi
+			nmcli nm wifi off
+			;;
+		down)
+			# Ethernet turned off, so enable wifi
+			nmcli nm wifi on
+			;;
+	esac
+fi
