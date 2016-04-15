@@ -54,6 +54,8 @@ bindsym $mod+Shift+p exec --no-startup-id passmenu --type
 # change focus
 bindsym $mod+h exec "i3_vim_focus left"
 bindsym $mod+l exec "i3_vim_focus right"
+bindsym $mod+odiaeresis exec "i3_vim_focus left"
+bindsym $mod+q exec "i3_vim_focus right"
 
 bindsym $mod+j exec "i3_vim_focus down"
 bindsym $mod+k exec "i3_vim_focus up"
@@ -135,8 +137,10 @@ exec --no-startup-id i3-msg "workspace 1: firefox"
 # Some keys to change to prev/next workspace
 bindsym Ctrl+Shift+Right workspace next
 bindsym Ctrl+Shift+l workspace next
+bindsym Ctrl+Shift+q workspace next
 bindsym Ctrl+Shift+Left workspace prev
 bindsym Ctrl+Shift+h workspace prev
+bindsym Ctrl+Shift+odiaeresis workspace prev
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace number 1: firefox
