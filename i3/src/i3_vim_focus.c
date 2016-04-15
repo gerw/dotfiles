@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
 		fprintf(stderr, "Host: NULL\n");
 	}
 
-	if( class && strcmp(class, "gvim") == 0 ) {
+	if( class && ( strcmp(class, "gvim") == 0 || strcmp(class, "gvimdiff") == 0 ) ) {
 		// If it is vim, send a keystroke.
 		fprintf(stderr, "VIM!\n", class);
 
