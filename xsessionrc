@@ -2,3 +2,10 @@
 xset r rate 220 40
 
 xmodmap $HOME/.Xmodmap
+
+distro=`lsb_release -cs`
+
+# Load a random wallpaper
+if [ -d /usr/share/backgrounds/ ]; then
+	feh --bg-fill $(sort -R <(ls /usr/share/backgrounds/*.jpg) )
+fi
