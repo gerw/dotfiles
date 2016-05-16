@@ -38,6 +38,21 @@ case "$distro" in
 			dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
 		}
 		;;
+	xenial)
+		# Ubuntu 14.04
+		suspend() {
+			systemctl suspend
+		}
+		hibernate() {
+			systemctl hibernate
+		}
+		reboot() {
+			systemctl reboot
+		}
+		shutdown() {
+			systemctl poweroff
+		}
+		;;
 	# TODO:
 	Bottle)
 		# openSUSE 13.1
