@@ -63,10 +63,16 @@ bindsym $mod+b exec "i3_vim_focus down"
 bindsym $mod+m exec "i3_vim_focus up"
 
 
+# Bind F2x and $mod+F2x.
+# To be used with the vim plugin for focus changes.
 bindsym $mod+F21 focus left
 bindsym $mod+F22 focus down
 bindsym $mod+F23 focus up
 bindsym $mod+F24 focus right
+bindsym F21 focus left
+bindsym F22 focus down
+bindsym F23 focus up
+bindsym F24 focus right
 
 
 # alternatively, you can use the cursor keys:
