@@ -26,6 +26,43 @@ font pango:Hack, FontAwesome, 10
 # X core fonts rendering does not support right-to-left and this being a bitmap
 # font, it doesn’t scale on retina/hidpi displays.
 
+# Solarized colors
+set $baseO3    #002b36
+set $baseO2    #073642
+set $baseO1    #586e75
+set $baseOO    #657b83
+set $base0     #839496
+set $base1     #93a1a1
+set $base2     #eee8d5
+set $base3     #fdf6e3
+set $yellow    #b58900
+set $orange    #cb4b16
+set $red       #dc322f
+set $magenta   #d33682
+set $violet    #6c71c4
+set $blue      #268bd2
+set $cyan      #2aa198
+set $green     #859900
+
+# Some more colors:
+set $black     #000000
+set $darkbl    #135b84
+
+# between $baseO1 and $baseO2
+set $baseO15   #2f525b
+
+set $egal #ff0000
+
+# Colorscheme
+# class                 border  backgr.  text    indicator child_border
+client.focused          $blue   $darkbl  $base2  $red      $egal
+client.focused_inactive $baseO2 $baseO15 $base2  $baseO1   $egal
+client.unfocused        $baseO3 $baseO2  $base1  $baseO3   $egal
+client.urgent           $red    $red     $base2  $blue     $egal
+client.placeholder      $egal   $black   $base0  $egal     $egal
+
+client.background       $green
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -217,8 +254,22 @@ bindsym $mod+Shift+e mode "$mode_system"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  status_command "i3status -c $HOME/.i3/i3status.conf"
-  # status_command i3status
+	status_command "i3status -c $HOME/.i3/i3status.conf"
+	# status_command i3status
+
+	colors {
+		background $baseO3
+		statusline $base1
+		separator  $base1
+
+		#                  border   bckgrd  text
+		focused_workspace  $baseOO  $darkbl $base2
+		inactive_workspace $baseO15 $baseO2 $base0
+		urgent_workspace   $base0   $red    $base2
+		binding_mode       $base0   $red    $base2
+		## only used with multiple monitors:
+		active_workspace   #333333  #5f676a #ffffff
+	}
 }
 
 
