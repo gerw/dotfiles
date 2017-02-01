@@ -78,7 +78,7 @@ bindsym $mod+Return exec xterm
 bindsym $mod+Shift+q kill
 
 # set parameters for dmenu
-set $dmenupara -fn 'Hack-10'
+set $dmenupara -fn 'Hack-10' -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
 
 # start dmenu (a program launcher), with appropriate font
 bindsym $mod+d exec dmenu_run $dmenupara
