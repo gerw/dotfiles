@@ -15,36 +15,6 @@
             "percent": 0.26,
             "type": "con",
             "nodes": [
-                {
-                    // tabbed split container with 2 children
-                    "border": "normal",
-                    "floating": "auto_off",
-                    "layout": "tabbed",
-                    "percent": 0.5,
-                    "type": "con",
-                    "nodes": [
-                        {
-                            "border": "normal",
-                            "current_border_width": 2,
-                            "floating": "auto_off",
-                            "geometry": {
-                               "height": 436,
-                               "width": 724,
-                               "x": 0,
-                               "y": 0
-                            },
-                            "name": "evince_vim_dbus.py",
-                            "percent": 0.5,
-                            "swallows": [
-                               {
-                                  "class": "^XTerm$",
-                                  "instance": "^xterm$",
-                                  "title": "^evince_vim_dbus\\.py$"
-                               // "transient_for": "^$"
-                               }
-                            ],
-                            "type": "con"
-                        },
                         {
                             "border": "normal",
                             "current_border_width": 2,
@@ -67,8 +37,6 @@
                             ],
                             "type": "con"
                         }
-                    ]
-                }
             //,
             //    {
             //        "border": "normal",
@@ -134,8 +102,8 @@
     "percent": 0.46,
     "swallows": [
        {
-          "class": "^Evince$",
-          "instance": "^evince$"
+          "class": "^Zathura$",
+          "instance": "^zathura$"
        // "title": "^test\\.pdf$",
        // "transient_for": "^$"
        }
