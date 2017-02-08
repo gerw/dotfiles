@@ -10,3 +10,7 @@ pkill -USR1 -u gerw bash -P $(pgrep -u gerw 'xterm|sshd' -d ,)
 
 # Load the Xresources
 xrdb -merge ~/dotfiles/solarized_xresources/Xresources.light
+
+# Recolor i3
+cat ~/.i3/config.light ~/.i3/config.in > ~/.i3/config
+i3-msg reload

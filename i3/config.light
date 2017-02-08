@@ -1,0 +1,29 @@
+# Solarized colors
+set $baseO3    #fdf6e3
+set $baseO2    #eee8d5
+set $baseO1    #93a1a1
+set $baseOO    #839496
+set $base0     #657b83
+set $base1     #586e75
+set $base2     #073642
+set $base3     #002b36
+set $yellow    #b58900
+set $orange    #cb4b16
+set $red       #dc322f
+set $magenta   #d33682
+set $violet    #6c71c4
+set $blue      #268bd2
+set $cyan      #2aa198
+set $green     #859900
+
+# Some more colors:
+set $black     #000000
+
+# between $baseO3 and $blue
+set $darkbl    #92c1db
+
+# between $baseO1 and $baseO2
+set $baseO15   #c1c5bb
+
+set $egal #ff0000
+

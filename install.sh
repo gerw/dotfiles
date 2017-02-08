@@ -4,8 +4,10 @@ cd "$(dirname "$0")"
 
 if [ "x$HOST" = "xcantor" ]; then
 	cpp <( cat Xresources solarized_xresources/Xresources.light ) "$HOME/.Xresources"
+	cat i3/config.light i3/config.in > i3/config
 else
 	cpp <( cat Xresources solarized_xresources/Xresources.dark ) "$HOME/.Xresources"
+	cat i3/config.dark i3/config.in > i3/config
 fi
 
 cd "$HOME"
