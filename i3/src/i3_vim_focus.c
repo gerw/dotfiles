@@ -51,7 +51,7 @@ int main(int argc, char *argv[]) {
 
 	if( class && ( strcmp(class, "gvim") == 0 || strcmp(class, "gvimdiff") == 0 ) ) {
 		// If it is vim, send a keystroke.
-		fprintf(stderr, "VIM!\n", class);
+		fprintf(stderr, "VIM!\n");
 
 		switch( argv[1][0] ) {
 			case 'l':
@@ -71,10 +71,10 @@ int main(int argc, char *argv[]) {
 				break;
 		}
 
-		xdo_send_keysequence_window(xdo, window_ret, cmd, 0);
+		xdo_send_keysequence_window(xdo, CURRENTWINDOW, cmd, 0);
 	}
 	else {
-		fprintf(stderr, "no VIM!\n", class);
+		fprintf(stderr, "no VIM!\n");
 
 		// Set up the command
 		strcpy(cmd, "focus ");
