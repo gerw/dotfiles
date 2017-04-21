@@ -71,7 +71,7 @@ int main(int argc, char *argv[]) {
 				break;
 		}
 
-		xdo_send_keysequence_window(xdo, CURRENTWINDOW, cmd, 0);
+		xdo_send_keysequence_window(xdo, window_ret, cmd, 0);
 	}
 	else {
 		fprintf(stderr, "no VIM!\n");
