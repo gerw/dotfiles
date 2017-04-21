@@ -20,7 +20,6 @@ int main(int argc, char *argv[]) {
 	char cmd[30];
 
 	unsigned char *class;
-	unsigned char *host;
 	Window window_ret;
 
 	if(argc < 2) {
@@ -28,12 +27,11 @@ int main(int argc, char *argv[]) {
 		return 1;
 	}
 
-	// Get the class and host of the active window
+	// Get the class of the active window
 	xdo_t *xdo = xdo_new(NULL);
 	xdo_get_active_window(xdo, &window_ret);
 
 	xdo_get_window_property(xdo, window_ret, "WM_CLASS", &class, NULL, NULL, NULL);
-	xdo_get_window_property(xdo, window_ret, "WM_CLIENT_MACHINE", &host, NULL, NULL, NULL);
 
 	// Some debug output
 	if( class ) {
@@ -41,12 +39,6 @@ int main(int argc, char *argv[]) {
 	}
 	else {
 		fprintf(stderr, "Class: NULL\n");
-	}
-	if( host ) {
-		fprintf(stderr, "Host: \"%s\"\n", host);
-	}
-	else {
-		fprintf(stderr, "Host: NULL\n");
 	}
 
 	if( class && ( strcmp(class, "gvim") == 0 || strcmp(class, "gvimdiff") == 0 ) ) {
@@ -131,6 +123,5 @@ int main(int argc, char *argv[]) {
 	}
 
 	free(class);
-	free(host);
 	return 0;
 }
