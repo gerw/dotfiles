@@ -50,9 +50,6 @@ bindsym $mod+Return exec xterm
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# set parameters for dmenu
-set $dmenupara -fn 'Hack-10' -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#93a1a1'
-
 # start dmenu (a program launcher), with appropriate font
 bindsym $mod+d exec dmenu_run $dmenupara
 # There also is the (new) i3-dmenu-desktop which only displays applications

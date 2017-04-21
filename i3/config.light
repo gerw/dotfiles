@@ -27,3 +27,6 @@ set $baseO15   #c1c5bb
 
 set $egal #ff0000
 
+
+# set parameters for dmenu
+set $dmenupara -fn 'Hack-10' -nb '#fdf6e3' -nf '#657b83' -sb '#eee8d5' -sf '#586e75'
