@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-if [ "x$HOST" = "xcantor" ]; then
+if [ "x$HOSTNAME" = "xsobolev" ]; then
 	cpp <( cat Xresources solarized_xresources/Xresources.light ) "$HOME/.Xresources"
 	cat i3/config.light i3/config.in > i3/config
 else
@@ -18,7 +18,7 @@ for file in dircolors xsessionrc; do
 	ln -s "$RELPATH/$file" ".$file"
 done
 
-if [ "x$HOST" = "xcantor" ]; then
+if [ "x$HOSTNAME" = "xsobolev" ]; then
 	file=xinitrc
 	ln -s "$RELPATH/$file" ".$file"
 fi
