@@ -29,9 +29,11 @@ int main(int argc, char *argv[]) {
 
 	// Get the class of the active window
 	xdo_t *xdo = xdo_new(NULL);
-	xdo_get_active_window(xdo, &window_ret);
+	int ret = xdo_get_active_window(xdo, &window_ret);
 
-	xdo_get_window_property(xdo, window_ret, "WM_CLASS", &class, NULL, NULL, NULL);
+	if ( ret != XDO_ERROR ) {
+		xdo_get_window_property(xdo, window_ret, "WM_CLASS", &class, NULL, NULL, NULL);
+	}
 
 	// Some debug output
 	if( class ) {
@@ -41,7 +43,13 @@ int main(int argc, char *argv[]) {
 		fprintf(stderr, "Class: NULL\n");
 	}
 
-	if( class && ( strcmp(class, "gvim") == 0 || strcmp(class, "gvimdiff") == 0 ) ) {
+	if(
+			(ret != XDO_ERROR )
+			&&
+			class
+			&&
+			( strcmp(class, "gvim") == 0 || strcmp(class, "gvimdiff") == 0 )
+		) {
 		// If it is vim, send a keystroke.
 		fprintf(stderr, "VIM!\n");
 
