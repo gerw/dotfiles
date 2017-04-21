@@ -28,11 +28,11 @@ font pango:Hack, FontAwesome, 10
 
 # Colorscheme
 # class                 border  backgr.  text    indicator child_border
-client.focused          $blue   $darkbl  $base2  $red      $egal
-client.focused_inactive $baseO2 $baseO15 $base2  $baseO1   $egal
-client.unfocused        $baseO3 $baseO2  $base1  $baseO3   $egal
-client.urgent           $red    $red     $base2  $blue     $egal
-client.placeholder      $egal   $black   $base0  $egal     $egal
+client.focused          $blue   $darkbl  $base2  $red      $blue
+client.focused_inactive $baseO2 $baseO15 $base2  $baseO1   $baseO2
+client.unfocused        $baseO3 $baseO2  $base1  $baseO3   $baseO3
+client.urgent           $red    $red     $base2  $blue     $red
+# client.placeholder      $egal   $black   $base0  $egal     $egal
 
 client.background       $green
 
