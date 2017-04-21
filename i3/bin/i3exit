@@ -53,6 +53,21 @@ case "$distro" in
 			systemctl poweroff
 		}
 		;;
+	yakkety)
+		# Ubuntu 16.10
+		suspend() {
+			systemctl suspend
+		}
+		hibernate() {
+			systemctl hibernate
+		}
+		reboot() {
+			systemctl reboot
+		}
+		shutdown() {
+			systemctl poweroff
+		}
+		;;
 	# TODO:
 	Bottle)
 		# openSUSE 13.1
