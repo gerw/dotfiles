@@ -5,10 +5,10 @@
 ! xterm*vt100.initialFont:
 !
 XTerm.VT100.renderFont: true
-XTerm.VT100.faceName: Monospace
+XTerm.VT100.faceName: Hack
 
 ! Face size for normal:
-XTerm.VT100.faceSize:  11
+XTerm.VT100.faceSize:  10
 ! Face sizes for alternates:
 ! Unreadable:
 XTerm.VT100.faceSize1:  7
