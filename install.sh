@@ -14,7 +14,7 @@ cd "$HOME"
 
 RELPATH="$(relpath "$(dirname $0)")"
 
-for file in dircolors xsessionrc bash_aliases bash_completion bashrc profile; do
+for file in dircolors xsessionrc bash_aliases bash_completion bashrc profile inputrc; do
 	ln -s "$RELPATH/$file" ".$file"
 done
 

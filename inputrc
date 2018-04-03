@@ -1,0 +1,10 @@
+# Use vi!
+set editing-mode vi
+
+# Show me the mode!
+set show-mode-in-prompt on
+set vi-ins-mode-string "\1\e[34;1m\2i\1\e[0m\2 "
+set vi-cmd-mode-string "\1\e[35;1m\2c\1\e[0m\2 "
+
+# Do not wait 500ms for next key (fast ESC)
+set keyseq-timeout 1
