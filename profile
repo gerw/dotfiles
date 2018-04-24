@@ -17,8 +17,8 @@ if [ -d "$HOME/local/bin" ] ; then
 	PATH="$HOME/local/bin:$PATH"
 fi
 
-if [ -d "$HOME/work/Software/bin" ] ; then
-	PATH="$HOME/work/Software/bin:$PATH"
+if [ -d "$HOME/work/software/mathbin" ] ; then
+	PATH="$HOME/work/software/mathbin:$PATH"
 fi
 if [ -d "$HOME/.i3/bin" ] ; then
 	PATH="$HOME/.i3/bin:$PATH"
