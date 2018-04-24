@@ -2,7 +2,7 @@
 
 cd "$(dirname "$0")"
 
-if [ "x$HOSTNAME" = "xsobolev" ]; then
+if [ "x$HOSTNAME" = "xeuler" ]; then
 	cpp <( cat Xresources solarized_xresources/Xresources.light ) "$HOME/.Xresources"
 	cat i3/config.light i3/config.in > i3/config
 else
@@ -17,8 +17,9 @@ RELPATH="$(relpath "$(dirname $0)")"
 for file in dircolors xsessionrc bash_aliases bash_completion bashrc profile inputrc; do
 	ln -s "$RELPATH/$file" ".$file"
 done
+ln -s "$RELPATH/i3" ".i3"
 
-if [ "x$HOSTNAME" = "xsobolev" ]; then
-	file=xinitrc
-	ln -s "$RELPATH/$file" ".$file"
-fi
+# if [ "x$HOSTNAME" = "xsobolev" ]; then
+# 	file=xinitrc
+# 	ln -s "$RELPATH/$file" ".$file"
+# fi
