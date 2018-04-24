@@ -98,12 +98,12 @@
        "x": 0,
        "y": 0
     },
-    "name": "test.pdf",
+    "name": "viewer",
     "percent": 0.46,
     "swallows": [
        {
-          "class": "^Zathura$",
-          "instance": "^zathura$"
+          "class": "^(Zathura|Okular)$",
+          "instance": "^(zathura|okular)$"
        // "title": "^test\\.pdf$",
        // "transient_for": "^$"
        }

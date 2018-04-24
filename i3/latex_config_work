@@ -72,12 +72,12 @@
        "x": 0,
        "y": 0
     },
-    "name": "Okular",
+    "name": "viewer",
     "percent": 0.46,
     "swallows": [
        {
-          "class": "^Okular$",
-          "instance": "^okular$"
+          "class": "^(Zathura|Okular)$",
+          "instance": "^(zathura|okular)$"
        }
     ],
     "type": "con"
