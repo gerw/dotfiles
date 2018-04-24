@@ -5,3 +5,6 @@ bin/term-recolor-current.sh
 # Binaries
 i3/bin/i3_vim_focus
 i3/src/i3_vim_focus
+
+# Generated config
+i3/config
