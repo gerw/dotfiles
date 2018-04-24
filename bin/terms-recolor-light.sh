@@ -6,7 +6,7 @@ cd $(dirname $0)
 ln -sf term-recolor-light.sh term-recolor-current.sh
 
 # Do it ;)
-pkill -USR1 -u gerw bash -P $(pgrep -u gerw 'xterm|sshd' -d ,)
+pkill -USR1 -u $USER bash -P $(pgrep -u $USER 'xterm|sshd' -d ,)
 
 # Load the Xresources
 xrdb -merge ~/dotfiles/solarized_xresources/Xresources.light
