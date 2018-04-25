@@ -74,7 +74,7 @@ if [ "$color_prompt" = yes ]; then
 		shortusr="$USER"
 	fi
 
-	if [[ $(hostname) -eq "kunigunde" ]]; then
+	if [[ $(hostname) == "kunigunde" || $(hostname) == "euler" ]]; then
 		shorthost=""
 	else
 		shorthost="@$(hostname)"
