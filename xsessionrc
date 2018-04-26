@@ -12,7 +12,6 @@ xinput set-prop "Logitech MX Ergo" "Device Accel Constant Deceleration" 1.3
 # Load a random wallpaper
 if [ -d /usr/share/backgrounds/ ]; then
 	feh --bg-fill $(sort -R <(ls /usr/share/backgrounds/*.jpg) )
-fi
-if [ -d /usr/share/wallpapers/ ]; then
-	feh --bg-fill $(sort -R <(for i in /usr/share/wallpapers/*/contents/images/; do ls -1 "$i"* | head -n1;  done))
+elif [ -d /usr/share/wallpapers/ ]; then
+	feh --bg-fill $(sort -R <(for i in /usr/share/wallpapers/*/contents/images/; do ls -1r "$i"* | head -n1;  done))
 fi
