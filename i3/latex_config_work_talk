@@ -73,8 +73,8 @@
             "percent": 0.737894736842105,
             "swallows": [
                {
-          "class": "^(Zathura|Okular)$",
-          "instance": "^(zathura|okular)$"
+          "class": "^(Zathura|[Oo]kular)$",
+          "instance": "^(zathura|[Oo]kular)$"
                }
             ],
             "type": "con"
