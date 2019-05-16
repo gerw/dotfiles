@@ -32,3 +32,5 @@ XTerm.VT100.faceSize6:  19
 
 
 XTerm*SaveLines: 5000
+
+XTerm*utf8Title: true
