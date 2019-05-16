@@ -38,23 +38,8 @@ case "$distro" in
 			dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
 		}
 		;;
-	xenial)
-		# Ubuntu 16.04
-		suspend() {
-			systemctl suspend
-		}
-		hibernate() {
-			systemctl hibernate
-		}
-		reboot() {
-			systemctl reboot
-		}
-		shutdown() {
-			systemctl poweroff
-		}
-		;;
-	yakkety|cosmic|disco|eoan|focal)
-		# Ubuntu 16.10, 18.10, 19.04, 19.10, 20.04
+	xenial|yakkety|cosmic|disco|eoan|focal)
+		# Ubuntu 16.04, 16.10, 18.10, 19.04, 19.10, 20.04
 		suspend() {
 			systemctl suspend
 		}
