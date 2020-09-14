@@ -12,9 +12,10 @@ fi
 
 cd "$HOME"
 
-RELPATH="$(relpath "$(dirname $0)")"
+#RELPATH="$(relpath "$(dirname $0)")"
+RELPATH=dotfiles
 
-for file in dircolors xsessionrc bash_aliases bash_completion bashrc profile inputrc; do
+for file in dircolors xsessionrc xinputrc bash_aliases bash_completion bashrc profile inputrc; do
 	ln -s "$RELPATH/$file" ".$file"
 done
 ln -s "$RELPATH/i3" ".i3"

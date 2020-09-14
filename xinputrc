@@ -1,0 +1,9 @@
+# Set the sensitivity of the trackball.
+# If it is not present, this command will fail, but nobody cares.
+xinput set-prop "pointer:Logitech MX Ergo" "Device Accel Constant Deceleration" 1.3
+
+# The same for the touchpad
+xinput set-prop 'Synaptics TM3288-011' 'Synaptics Move Speed' 1.0 3.25 0.25 0.0
+# xinput set-prop 'Synaptics TM3288-011' 'libinput Accel Speed' '0.7'
+# xinput set-prop 'Synaptics TM3288-011' 'libinput Tapping Enabled' '1'
+

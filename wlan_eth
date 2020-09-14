@@ -3,7 +3,7 @@
 # Drop this script in /etc/NetworkManager/dispatcher.d/
 # It will (en|dis)able wlan if ethernet is (dis|en)abled
 
-if [ "$1" = "enx0050b6588dbc" ]; then
+if [ "$1" = "enp0s31f6" ]; then
 	case "$2" in
 		up)
 			# Ethernet turned on, so disable wifi

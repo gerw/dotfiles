@@ -26,6 +26,12 @@ fi
 if [ -d "$HOME/dotfiles/bin" ] ; then
 	PATH="$HOME/dotfiles/bin:$PATH"
 fi
+if [ -d "/opt/matlab/bin" ] ; then
+	PATH="/opt/matlab/bin:$PATH"
+fi
+if [ -d "/opt/maple2019/bin" ] ; then
+	PATH="/opt/maple2019/bin:$PATH"
+fi
 
 if [ -d "$HOME/local/lib" ] ; then
 	export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
