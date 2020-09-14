@@ -244,13 +244,18 @@ bar {
 	}
 }
 
-
+# Backlight: we use 'light'
+bindsym XF86MonBrightnessDown exec "light -U 5"
+bindsym XF86MonBrightnessUp exec "light -A 5"
 
 # Sound: for a cui see alsamixer
 set $update_i3status killall -SIGUSR1 i3status
-bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+ unmute && $update_i3status"
-bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%- unmute && $update_i3status"
-bindsym XF86AudioMute exec "amixer set Speaker unmute ; amixer set Headphone unmute ; amixer set Master toggle && $update_i3status"
+# bindsym XF86AudioRaiseVolume exec "amixer -q set Master 5%+ unmute && $update_i3status"
+# bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%- unmute && $update_i3status"
+# bindsym XF86AudioMute exec "amixer set Speaker unmute ; amixer set Headphone unmute ; amixer set Master toggle && $update_i3status"
+bindsym XF86AudioRaiseVolume exec "pactl set-sink-volume @DEFAULT_SINK@ +5% && $update_i3status"
+bindsym XF86AudioLowerVolume exec "pactl set-sink-volume @DEFAULT_SINK@ -5% && $update_i3status"
+bindsym XF86AudioMute exec "pactl set-sink-mute @DEFAULT_SINK@ toggle && $update_i3status"
 
 
 # Assign the plot windows which matlabs opens when saving figures to the scratchpad.
