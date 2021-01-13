@@ -3,6 +3,8 @@ xset r rate 220 40
 
 xmodmap $HOME/.Xmodmap
 
+numlockx on
+
 distro=`lsb_release -cs`
 
 # Load a random wallpaper
