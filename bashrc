@@ -68,7 +68,7 @@ if [ "$color_prompt" = yes ]; then
 	yellow="\[\033[01;33m\]"
 	blue="\[\033[01;34m\]"
 
-	if [[ "x$USER" == "xgerw" ]]; then
+	if [[ "x$USER" == "xgerw" || "x$USER" == "xwachsmut" ]]; then
 		shortusr=""
 	else
 		shortusr="$USER"

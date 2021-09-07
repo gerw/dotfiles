@@ -47,6 +47,7 @@ fi
 # Note: a trailing // means: recurse into subdirectories
 export TEXINPUTS=$TEXINPUTS:\
 $HOME/work/resources//:\
+$HOME/work/teaching/exercises//:\
 $HOME/work/cloud/optimal_control/images//:\
 $HOME/TUC_work/Resources//:\
 $HOME/TUC_work/Talks/Archive//:\
@@ -69,6 +70,9 @@ export BASH_ENV=$HOME/.bashrc
 # Define a license file
 # export MOSEKLM_LICENSE_FILE=/opt/mosek/7/mosek.lic
 
+# Set language and encoding
+export LANG=en_GB.UTF-8
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
 	# include .bashrc if it exists
@@ -77,3 +81,6 @@ if [ -n "$BASH_VERSION" ]; then
 	fi
 fi
 
+
+## ls has gone crazy, https://unix.stackexchange.com/questions/258679
+export QUOTING_STYLE=literal

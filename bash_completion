@@ -3,3 +3,7 @@ bind 'set mark-symlinked-directories on'
 
 # Completion for xmakepdf
 complete -f -X '!*.@(?(la)tex|?(LA)TEX|texi|TEXI|dtx|DTX|ins|INS|ltx|LTX)' xmakepdf
+complete -f -X '!*.@(?(la)tex|?(LA)TEX|texi|TEXI|dtx|DTX|ins|INS|ltx|LTX)' latexmk
+
+# Do not edit *.pyc files with gvim
+complete -F _filedir_xspec -X '*.pyc' gvim

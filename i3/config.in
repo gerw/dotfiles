@@ -176,7 +176,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Turn monitor of with Launch key 5
-bindsym XF86Launch9 exec --no-startup-id "xset dpms force off"
+bindsym --release XF86Launch9 exec --no-startup-id "xset dpms force off"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

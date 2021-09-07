@@ -1,11 +1,11 @@
 # Faster key repetition.
 xset r rate 220 40
 
-xmodmap $HOME/.Xmodmap
-
+# Turn on numlock
 numlockx on
 
-distro=`lsb_release -cs`
+# Load my xmodmap
+xmodmap $HOME/.Xmodmap
 
 # Load a random wallpaper
 if [ -d /usr/share/backgrounds/ ]; then
