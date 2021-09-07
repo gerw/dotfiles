@@ -268,3 +268,7 @@ for_window [class="^vtk$" instance="^ParaView$"] floating enable
 bindsym $mod+shift+f exec --no-startup-id create_placeholder --name "Matlab Figure" --class "com-mathworks-util-PostVMInit|MATLAB R" --instance "^sun-awt-X11-XFramePeer$"
 
 exec "gnome-keyring-daemon --start --components=gpg,ssh,pkcs11,secrets"
+
+# Floating windows
+for_window [class="scrcpy"] floating enable
+# for_window [class="okular"] floating enable
