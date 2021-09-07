@@ -20,6 +20,9 @@ for file in dircolors xsessionrc xinputrc bash_aliases bash_completion bashrc pr
 done
 ln -s "$RELPATH/i3" ".i3"
 
+mkdir -p ~/.julia/config/
+ln -s "../../$RELPATH/startup.jl" ".julia/config/"
+
 # if [ "x$HOSTNAME" = "xsobolev" ]; then
 # 	file=xinitrc
 # 	ln -s "$RELPATH/$file" ".$file"
