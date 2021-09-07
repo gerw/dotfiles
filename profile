@@ -38,6 +38,11 @@ if [ -d "$HOME/local/lib" ] ; then
 	export PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig:$PKG_CONFIG_PATH
 fi
 
+# Source the okular prefix
+if [ -e "$HOME/local/src/okular/build/prefix.sh" ] ; then
+	source $HOME/local/src/okular/build/prefix.sh
+fi
+
 # Set path where LaTeX searches for input files
 # Note: a trailing // means: recurse into subdirectories
 export TEXINPUTS=$TEXINPUTS:\
