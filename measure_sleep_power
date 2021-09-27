@@ -1,0 +1,29 @@
+#!/bin/bash
+
+# drop into /lib/systemd/system-sleep/
+
+/usr/bin/dbus-send --system --dest=org.freedesktop.UPower --type=method_call /org/freedesktop/UPower/devices/battery_BAT0 org.freedesktop.UPower.Device.Refresh
+ENERGY=$(upower -i $(upower -e | grep BAT0) | grep "energy:" | awk '{print $(NF-1)}')
+TIME=$(date +%s)
+
+if [ "${1}" == "pre" ]; then
+	echo -n "Goto sleep with ($ENERGY) Wh" | systemd-cat -t "/lib/systemd/system-sleep/measure_sleep_power"
+elif [ "${1}" == "post" ]; then
+	SLEEP=$(journalctl --no-pager -o short-unix -t /lib/systemd/system-sleep/measure_sleep_power | grep 'Goto sleep with' | tail -n 1)
+	SLEEP_TIME=$(echo $SLEEP | awk '{print $1}')
+	SLEEP_ENERGY=$(echo $SLEEP | awk -F '[()]' '{print $2}')
+
+	ENERGY_USED=$(echo "$SLEEP_ENERGY - $ENERGY" | bc) # in Wh
+	TIME_DIFF=$(echo "$TIME - $SLEEP_TIME" | bc) # in seconds
+	TIME_DIFF_HOURS=$(echo "scale=6; $TIME_DIFF / 3600." | bc) # in h
+	POWER_USED=$(echo "scale=6; $ENERGY_USED / $TIME_DIFF_HOURS" | bc)
+
+	echo -n "Awoke with ($ENERGY) Wh" | systemd-cat -t "/lib/systemd/system-sleep/measure_sleep_power"
+	echo -n "Used $ENERGY_USED Wh" | systemd-cat -t "/lib/systemd/system-sleep/measure_sleep_power"
+	echo -n "Slept for $TIME_DIFF seconds ($TIME_DIFF_HOURS h)" | systemd-cat -t "/lib/systemd/system-sleep/measure_sleep_power"
+	echo -n "Average power during suspend: $POWER_USED W" | systemd-cat -t "/lib/systemd/system-sleep/measure_sleep_power"
+
+	# Also drop a notification
+	sudo -u wachsmut DISPLAY=:0 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus notify-send "Sleep report" "I slept for $TIME_DIFF_HOURS h with an average power consumption of $POWER_USED W." -i battery-full
+
+fi;

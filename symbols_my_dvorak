@@ -1,0 +1,468 @@
+default xkb_symbols "my_symbols" {
+    include "pc+de+inet(evdev)"
+
+    name[group1]="German";
+
+    override key     <> {         [             F18 ] };
+    override key  <ESC> {         [          Escape ] };
+    override key <AE01> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               1,          exclam,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE02> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               2,              at,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE03> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               3,         section,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE04> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               4,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE05> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               5,         percent,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE06> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               6,       ampersand,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE07> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               7,          dollar,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE08> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               8,             bar,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE09> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               9,       parenleft,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE10> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               0,      parenright,        NoSymbol,        NoSymbol ]
+    };
+    override key <AE11> {
+        type[group1]= "FOUR_LEVEL_PLUS_LOCK",
+        symbols[Group1]= [           slash,           equal,        NoSymbol,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [           acute,      dead_acute ]
+    };
+    override key <AE12> {
+        type[group1]= "FOUR_LEVEL",
+        symbols[Group1]= [       backslash,        question,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [           grave,      dead_grave ]
+    };
+    override key <BKSP> {         [       BackSpace ] };
+    override key  <TAB> {         [             Tab,    ISO_Left_Tab ] };
+    override key <AD01> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [      udiaeresis,      Udiaeresis,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [  guillemotright ]
+    };
+    override key <AD02> {
+        type[group1]= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [           comma,            less,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [   guillemotleft ]
+    };
+    override key <AD03> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [          period,         greater,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [       braceleft ]
+    };
+    override key <AD04> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               p,               P,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [      braceright ]
+    };
+    override key <AD05> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               y,               Y,        NoSymbol,        NoSymbol ]
+    };
+    override key <AD06> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               f,               F,        NoSymbol,        NoSymbol ]
+    };
+    override key <AD07> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               g,               G,        NoSymbol,        NoSymbol ]
+    };
+    override key <AD08> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               c,               C,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [       copyright ]
+    };
+    override key <AD09> {
+        type[group1]= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               t,               T,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [       trademark ]
+    };
+    override key <AD10> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               z,               Z,        NoSymbol,        NoSymbol ]
+    };
+    override key <AD11> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [       semicolon,           colon,        NoSymbol,        NoSymbol ]
+    };
+    override key <AD12> {
+        type[group1]= "FOUR_LEVEL",
+        symbols[Group1]= [            plus,        asterisk,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [      asciitilde ]
+    };
+    override key <RTRN> {         [          Return ] };
+    override key <LCTL> {         [       Control_L ] };
+    override key <AC01> {
+        type[group1]= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               a,               A,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [     asciicircum ]
+    };
+    override key <AC02> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               o,               O,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [       backslash ]
+    };
+    override key <AC03> {
+        type[group1]= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               e,               E,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [     bracketleft ]
+    };
+    override key <AC04> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               i,               I,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [    bracketright ]
+    };
+    override key <AC05> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               u,               U,        NoSymbol,        NoSymbol ]
+    };
+    override key <AC06> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               h,               H,        NoSymbol,        NoSymbol ]
+    };
+    override key <AC07> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               d,               D,        NoSymbol,        NoSymbol ]
+    };
+    override key <AC08> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               r,               R,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [      registered ]
+    };
+    override key <AC09> {
+        type= "FOUR_LEVEL_ALPHABETIC",
+        symbols[Group1]= [               n,               N,        NoSymbol,        NoSymbol ]
+    };
+    override key <AC10> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               s,               S,        NoSymbol,        NoSymbol ]
+    };
+    override key <AC11> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               l,               L,        NoSymbol,        NoSymbol ]
+    };
+    override key <TLDE> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [     asciicircum,          ssharp,        NoSymbol,        NoSymbol ]
+    };
+    override key <LFSH> {         [         Shift_L ] };
+    override key <BKSL> {
+        type[group1]= "FOUR_LEVEL",
+        symbols[Group1]= [      apostrophe,        quotedbl,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [      numbersign ]
+    };
+    override key <AB01> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [      odiaeresis,      Odiaeresis,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB02> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               q,               Q,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB03> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               j,               J,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [       parenleft ]
+    };
+    override key <AB04> {
+        type[group1]= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               k,               K,        NoSymbol,        NoSymbol ],
+        symbols[Group2]= [      parenright ]
+    };
+    override key <AB05> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               x,               X,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB06> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               b,               B,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB07> {
+        type= "FOUR_LEVEL_SEMIALPHABETIC",
+        symbols[Group1]= [               m,               M,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB08> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               w,               W,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB09> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [               v,               V,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB10> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [           minus,      underscore,        NoSymbol,        NoSymbol ]
+    };
+    override key <RTSH> {         [         Shift_R ] };
+    override key <KPMU> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [     KP_Multiply,        NoSymbol,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <LALT> {         [           Alt_L,          Meta_L ] };
+    override key <SPCE> {         [           space ] };
+    override key <CAPS> {         [          Escape ] };
+    override key <FK01> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F1,              F1,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK02> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F2,              F2,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK03> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F3,              F3,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK04> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F4,              F4,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK05> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F5,              F5,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK06> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F6,              F6,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK07> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F7,              F7,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK08> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F8,              F8,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK09> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [              F9,              F9,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK10> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [             F10,             F10,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <NMLK> {         [        Num_Lock, Pointer_EnableKeys ] };
+    override key <SCLK> {         [     Scroll_Lock ] };
+    override key  <KP7> {         [         KP_Home,            KP_7 ] };
+    override key  <KP8> {         [           KP_Up,            KP_8 ] };
+    override key  <KP9> {         [        KP_Prior,            KP_9 ] };
+    override key <KPSU> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [     KP_Subtract,        NoSymbol,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key  <KP4> {         [         KP_Left,            KP_4 ] };
+    override key  <KP5> {         [        KP_Begin,            KP_5 ] };
+    override key  <KP6> {         [        KP_Right,            KP_6 ] };
+    override key <KPAD> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [          KP_Add,        NoSymbol,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key  <KP1> {         [          KP_End,            KP_1 ] };
+    override key  <KP2> {         [         KP_Down,            KP_2 ] };
+    override key  <KP3> {         [         KP_Next,            KP_3 ] };
+    override key  <KP0> {         [       KP_Insert,            KP_0 ] };
+    override key <KPDL> {
+        type= "KEYPAD",
+        symbols[Group1]= [       KP_Delete,      KP_Decimal ]
+    };
+    override key <LVL3> {
+        type= "ONE_LEVEL",
+        symbols[Group1]= [             F17 ]
+    };
+    override key <LSGT> {
+        type= "FOUR_LEVEL",
+        symbols[Group1]= [      adiaeresis,      Adiaeresis,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK11> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [             F11,             F11,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <FK12> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [             F12,             F12,        NoSymbol,        NoSymbol,        NoSymbol ]
+    };
+    override key <AB11> {         [             F19 ] };
+    override key <KATA> {         [        Katakana ] };
+    override key <HIRA> {         [        Hiragana ] };
+    override key <HENK> {         [     Henkan_Mode ] };
+    override key <HKTG> {         [ Hiragana_Katakana ] };
+    override key <MUHE> {         [        Muhenkan ] };
+    override key <KPEN> {         [        KP_Enter ] };
+    override key <RCTL> {         [       Control_R ] };
+    override key <KPDV> {
+        type= "CTRL+ALT",
+        symbols[Group1]= [       KP_Divide,       KP_Divide,       KP_Divide,       KP_Divide,      XF86Ungrab ]
+    };
+    override key <PRSC> {
+        type= "PC_ALT_LEVEL2",
+        symbols[Group1]= [           Print,         Sys_Req ]
+    };
+    override key <RALT> {
+        type= "ONE_LEVEL",
+        symbols[Group1]= [     Mode_switch ]
+    };
+    override key <LNFD> {         [        Linefeed ] };
+    override key <HOME> {         [            Home ] };
+    override key   <UP> {         [              Up ] };
+    override key <PGUP> {         [           Prior ] };
+    override key <LEFT> {         [            Left ] };
+    override key <RGHT> {         [           Right ] };
+    override key  <END> {         [             End ] };
+    override key <DOWN> {         [            Down ] };
+    override key <PGDN> {         [            Next ] };
+    override key  <INS> {         [          Insert ] };
+    override key <DELE> {         [          Delete ] };
+    override key <MUTE> {         [   XF86AudioMute ] };
+    override key <VOL-> {         [ XF86AudioLowerVolume ] };
+    override key <VOL+> {         [ XF86AudioRaiseVolume ] };
+    override key <POWR> {         [    XF86PowerOff ] };
+    override key <KPEQ> {         [        KP_Equal ] };
+    override key <I126> {         [       plusminus ] };
+    override key <PAUS> {
+        type= "PC_CONTROL_LEVEL2",
+        symbols[Group1]= [           Pause,           Break ]
+    };
+    override key <I128> {         [     XF86LaunchA ] };
+    override key <I129> {         [      KP_Decimal,      KP_Decimal ] };
+    override key <HNGL> {         [          Hangul ] };
+    override key <HJCV> {         [    Hangul_Hanja ] };
+    override key <LWIN> {         [         Super_L ] };
+    override key <RWIN> {         [         Super_R ] };
+    override key <COMP> {         [            Menu ] };
+    override key <STOP> {         [          Cancel ] };
+    override key <AGAI> {         [            Redo ] };
+    override key <PROP> {         [        SunProps ] };
+    override key <UNDO> {         [            Undo ] };
+    override key <FRNT> {         [        SunFront ] };
+    override key <COPY> {         [        XF86Copy ] };
+    override key <OPEN> {         [        XF86Open ] };
+    override key <PAST> {         [       XF86Paste ] };
+    override key <FIND> {         [            Find ] };
+    override key  <CUT> {         [         XF86Cut ] };
+    override key <HELP> {         [            Help ] };
+    override key <I147> {         [      XF86MenuKB ] };
+    override key <I148> {         [  XF86Calculator ] };
+    override key <I150> {         [       XF86Sleep ] };
+    override key <I151> {         [      XF86WakeUp ] };
+    override key <I152> {         [    XF86Explorer ] };
+    override key <I153> {         [        XF86Send ] };
+    override key <I155> {         [        XF86Xfer ] };
+    override key <I156> {         [     XF86Launch1 ] };
+    override key <I157> {         [     XF86Launch2 ] };
+    override key <I158> {         [         XF86WWW ] };
+    override key <I159> {         [         XF86DOS ] };
+    override key <I160> {         [ XF86ScreenSaver ] };
+    override key <I161> {         [ XF86RotateWindows ] };
+    override key <I162> {         [    XF86TaskPane ] };
+    override key <I163> {         [        XF86Mail ] };
+    override key <I164> {         [   XF86Favorites ] };
+    override key <I165> {         [  XF86MyComputer ] };
+    override key <I166> {         [        XF86Back ] };
+    override key <I167> {         [     XF86Forward ] };
+    override key <I169> {         [       XF86Eject ] };
+    override key <I170> {         [       XF86Eject,       XF86Eject ] };
+    override key <I171> {         [   XF86AudioNext ] };
+    override key <I172> {         [   XF86AudioPlay,  XF86AudioPause ] };
+    override key <I173> {         [   XF86AudioPrev ] };
+    override key <I174> {         [   XF86AudioStop,       XF86Eject ] };
+    override key <I175> {         [ XF86AudioRecord ] };
+    override key <I176> {         [ XF86AudioRewind ] };
+    override key <I177> {         [       XF86Phone ] };
+    override key <I179> {         [       XF86Tools ] };
+    override key <I180> {         [    XF86HomePage ] };
+    override key <I181> {         [      XF86Reload ] };
+    override key <I182> {         [       XF86Close ] };
+    override key <I185> {         [    XF86ScrollUp ] };
+    override key <I186> {         [  XF86ScrollDown ] };
+    override key <I187> {         [       parenleft ] };
+    override key <I188> {         [      parenright ] };
+    override key <I189> {         [         XF86New ] };
+    override key <I190> {         [            Redo ] };
+    override key <FK13> {         [       XF86Tools ] };
+    override key <FK14> {         [     XF86Launch5 ] };
+    override key <FK15> {         [     XF86Launch6 ] };
+    override key <FK16> {         [     XF86Launch7 ] };
+    override key <FK17> {         [     XF86Launch8 ] };
+    override key <FK18> {         [     XF86Launch9 ] };
+    override key <FK20> {         [ XF86AudioMicMute ] };
+    override key <FK21> {         [ XF86TouchpadToggle ] };
+    override key <FK22> {         [  XF86TouchpadOn ] };
+    override key <FK23> {         [ XF86TouchpadOff ] };
+    override key <MDSW> {         [     Mode_switch ] };
+    override key  <ALT> {         [        NoSymbol,           Alt_L ] };
+    override key <META> {         [        NoSymbol,          Meta_L ] };
+    override key <SUPR> {         [        NoSymbol,         Super_L ] };
+    override key <HYPR> {         [        NoSymbol,         Hyper_L ] };
+    override key <I208> {         [   XF86AudioPlay ] };
+    override key <I209> {         [  XF86AudioPause ] };
+    override key <I210> {         [     XF86Launch3 ] };
+    override key <I211> {         [     XF86Launch4 ] };
+    override key <I212> {         [     XF86LaunchB ] };
+    override key <I213> {         [     XF86Suspend ] };
+    override key <I214> {         [       XF86Close ] };
+    override key <I215> {         [   XF86AudioPlay ] };
+    override key <I216> {         [ XF86AudioForward ] };
+    override key <I218> {         [           Print ] };
+    override key <I220> {         [      XF86WebCam ] };
+    override key <I223> {         [        XF86Mail ] };
+    override key <I224> {         [   XF86Messenger ] };
+    override key <I225> {         [      XF86Search ] };
+    override key <I226> {         [          XF86Go ] };
+    override key <I227> {         [     XF86Finance ] };
+    override key <I228> {         [        XF86Game ] };
+    override key <I229> {         [        XF86Shop ] };
+    override key <I231> {         [          Cancel ] };
+    override key <I232> {         [ XF86MonBrightnessDown ] };
+    override key <I233> {         [ XF86MonBrightnessUp ] };
+    override key <I234> {         [  XF86AudioMedia ] };
+    override key <I235> {         [     XF86Display ] };
+    override key <I236> {         [ XF86KbdLightOnOff ] };
+    override key <I237> {         [ XF86KbdBrightnessDown ] };
+    override key <I238> {         [ XF86KbdBrightnessUp ] };
+    override key <I239> {         [        XF86Send ] };
+    override key <I240> {         [       XF86Reply ] };
+    override key <I241> {         [ XF86MailForward ] };
+    override key <I242> {         [        XF86Save ] };
+    override key <I243> {         [   XF86Documents ] };
+    override key <I244> {         [     XF86Battery ] };
+    override key <I245> {         [   XF86Bluetooth ] };
+    override key <I246> {         [        XF86WLAN ] };
+    override key <I254> {         [        XF86WWAN ] };
+    override key <I255> {         [      XF86RFKill ] };
+    modifier_map Control { <LCTL> };
+    modifier_map Shift { <LFSH> };
+    modifier_map Shift { <RTSH> };
+    modifier_map Mod1 { <LALT> };
+    modifier_map Mod2 { <NMLK> };
+    modifier_map Mod5 { <LVL3> };
+    modifier_map Control { <RCTL> };
+    modifier_map Mod1 { <RALT> };
+    modifier_map Mod4 { <LWIN> };
+    modifier_map Mod4 { <RWIN> };
+    modifier_map Mod5 { <MDSW> };
+    modifier_map Mod1 { <META> };
+    modifier_map Mod4 { <SUPR> };
+    modifier_map Mod4 { <HYPR> };
+};

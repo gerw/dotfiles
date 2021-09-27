@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# drop into /lib/systemd/system-sleep/
+
+if [ "${1}" == "post" ]; then
+	echo -n none > /sys/devices/platform/i8042/serio1/drvctl
+	sleep 2
+	printf "Apply patch to reload Elantech TrackPoint after suspend" | systemd-cat -t "/lib/systemd/system-sleep/reanimate_touchpad"
+	echo -n reconnect > /sys/devices/platform/i8042/serio1/drvctl
+
+	sleep .5
+
+	# Run the configuration for the touchpad
+	DISPLAY=:0 ; export DISPLAY
+	sudo -u wachsmut bash -c '. /home/wachsmut/.xinputrc'
+fi
