@@ -46,7 +46,7 @@ fi
 # Set path where LaTeX searches for input files
 # Note: a trailing // means: recurse into subdirectories
 export TEXINPUTS=$TEXINPUTS:\
-$HOME/work/resources//:\
+$HOME/work/resources/latex//:\
 $HOME/work/teaching/exercises//:\
 $HOME/work/cloud/optimal_control/images//:\
 $HOME/TUC_work/Resources//:\
