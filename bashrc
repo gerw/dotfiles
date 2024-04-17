@@ -140,11 +140,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 
-# Tab completion for python
-export PYTHONSTARTUP=~/.pythonrc
-
-
-
 # Recolor mechanism:
 if [ "x$TERM" = "xxterm" ]; then
 	trap term-recolor-current.sh USR1
