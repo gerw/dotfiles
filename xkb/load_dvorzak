@@ -1,0 +1,10 @@
+#!/bin/bash
+XKBDIR="$HOME/dotfiles/xkb"
+xkbcomp -w 1 -I$XKBDIR $XKBDIR/dvorzak.xkb $DISPLAY
+
+# Print layout
+# xkbcomp -I$XKBDIR $XKBDIR/dvorzak.xkb - | xkbprint - - | ps2pdf - > dvorzak.pdf
+
+# By using an additional argument like "-i 15",
+# the change will only apply to a specific keyboard.
+# Look at the output of "xinput"
