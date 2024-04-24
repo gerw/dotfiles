@@ -32,6 +32,9 @@ fi
 if [ -d "/opt/maple2019/bin" ] ; then
 	PATH="/opt/maple2019/bin:$PATH"
 fi
+if [ -d "$HOME/local/typo3_remote" ] ; then
+	export PYTHONPATH="$HOME/local/typo3_remote:$PYTHONPATH"
+fi
 
 if [ -d "$HOME/local/lib" ] ; then
 	export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
