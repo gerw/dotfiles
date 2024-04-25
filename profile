@@ -29,8 +29,8 @@ fi
 if [ -d "/opt/matlab/bin" ] ; then
 	PATH="/opt/matlab/bin:$PATH"
 fi
-if [ -d "/opt/maple2019/bin" ] ; then
-	PATH="/opt/maple2019/bin:$PATH"
+if [ -d "/opt/maple2023/bin" ] ; then
+	PATH="/opt/maple2023/bin:$PATH"
 fi
 if [ -d "$HOME/local/typo3_remote" ] ; then
 	export PYTHONPATH="$HOME/local/typo3_remote:$PYTHONPATH"
