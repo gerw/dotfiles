@@ -74,7 +74,7 @@ if [ "$color_prompt" = yes ]; then
 		shortusr="$USER"
 	fi
 
-	if [[ $(hostname) == "kunigunde" || $(hostname) == "euler"  || $(hostname) == "hilde" ]]; then
+	if [[ $(hostname) == "kunigunde" || $(hostname) == "euler"  || $(hostname) == "hilde" || $(hostname) == "glap0" ]]; then
 		shorthost=""
 	else
 		shorthost="@$(hostname)"
@@ -137,6 +137,11 @@ fi
 # sources /etc/bash.bashrc).
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 	. /etc/bash_completion
+fi
+
+# enable command-not-found hook
+if [ -f /usr/share/doc/pkgfile/command-not-found.bash ]; then
+	. /usr/share/doc/pkgfile/command-not-found.bash
 fi
 
 

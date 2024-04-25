@@ -5,7 +5,11 @@ lock() {
 	i3lock
 }
 
-distro=`lsb_release -cs`
+if [ -f "/etc/arch-release" ]; then
+	distro="arch"
+else
+	distro=`lsb_release -cs`
+fi
 
 case "$distro" in
 	precise)
@@ -38,7 +42,7 @@ case "$distro" in
 			dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.PowerOff" boolean:true
 		}
 		;;
-	xenial|yakkety|bionic|cosmic|disco|eoan|focal|jammy)
+	arch|xenial|yakkety|bionic|cosmic|disco|eoan|focal|jammy)
 		# Ubuntu 16.04, 16.10, 18.04, 18.10, 19.04, 19.10, 20.04, 22.04
 		suspend() {
 			systemctl suspend
