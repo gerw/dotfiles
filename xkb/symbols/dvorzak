@@ -24,6 +24,12 @@ xkb_symbols "basic" {
 	// key <LWIN> { [ Super_L       ] };
 	include "level3(ralt_switch)"
 
+	// Bind keys F16-F19 such that they can be bound in vim
+	key <I239> { [ F16 ] };
+	key <I240> { [ F17 ] };
+	key <I241> { [ F18 ] };
+	key <I242> { [ F19 ] };
+
 	// Bind keys F21-F24 such that they can be bound in i3
 	key <FK21> { [ F21 ] };
 	key <FK22> { [ F22 ] };
