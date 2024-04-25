@@ -1,3 +1,8 @@
+# Load dvorzak layout
+if [ -e $HOME/dotfiles/bin/load_dvorzak ]; then
+	$HOME/dotfiles/bin/load_dvorzak
+fi
+
 # Faster key repetition.
 xset r rate 220 40
 
