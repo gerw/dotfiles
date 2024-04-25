@@ -74,7 +74,7 @@ export BASH_ENV=$HOME/.bashrc
 # export MOSEKLM_LICENSE_FILE=/opt/mosek/7/mosek.lic
 
 # Set language and encoding
-export LANG=en_GB.UTF-8
+export LANG=en_US.UTF-8
 
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
