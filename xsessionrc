@@ -14,8 +14,12 @@ numlockx on
 # xmodmap $HOME/.Xmodmap
 
 # Load a random wallpaper
-if [ -d /usr/share/backgrounds/ ]; then
-	feh --bg-fill $(sort -R <(ls /usr/share/backgrounds/*.jpg) )
-elif [ -d /usr/share/wallpapers/ ]; then
-	feh --bg-fill $(sort -R <(for i in /usr/share/wallpapers/*/contents/images/; do ls -1r "$i"* | head -n1;  done))
+if [ -x /usr/bin/feh ]; then
+	if [ -d /usr/share/backgrounds/archlinux/ ]; then
+		feh --bg-fill $(sort -R <(ls /usr/share/backgrounds/archlinux/*.{jpg,png}) ) &
+	elif [ -d /usr/share/backgrounds/ ]; then
+		feh --bg-fill $(sort -R <(ls /usr/share/backgrounds/*.jpg) ) &
+	elif [ -d /usr/share/wallpapers/ ]; then
+		feh --bg-fill $(sort -R <(for i in /usr/share/wallpapers/*/contents/images/; do ls -1r "$i"* | head -n1;  done)) &
+	fi
 fi
