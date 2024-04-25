@@ -5,6 +5,9 @@
  * © 2009-2011 Michael Stapelberg and contributors (see also: LICENSE)
  *
  */
+
+#define __STDC_WANT_LIB_EXT2__ 1  // Define you want TR 24731-2:2010 extensions; gives asprintf
+
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
