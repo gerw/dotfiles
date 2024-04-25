@@ -24,6 +24,12 @@ xkb_symbols "basic" {
 	// key <LWIN> { [ Super_L       ] };
 	include "level3(ralt_switch)"
 
+	// Bind keys F21-F24 such that they can be bound in i3
+	key <FK21> { [ F21 ] };
+	key <FK22> { [ F22 ] };
+	key <FK23> { [ F23 ] };
+	key <FK24> { [ F24 ] };
+
 	key <TLDE> { [ asciicircum, ssharp                     ] };
 	key <AE01> { [ 1,         exclam                       ] };
 	key <AE02> { [ 2,         at                           ] };
