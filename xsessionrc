@@ -1,9 +1,6 @@
 # Load dvorzak layout
 load_dvorzak &
 
-# Faster key repetition.
-xset r rate 220 40 &
-
 # Turn on numlock
 numlockx on &
 

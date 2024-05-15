@@ -2,9 +2,18 @@
 XKBDIR="$HOME/dotfiles/xkb"
 xkbcomp -w 1 -I$XKBDIR $XKBDIR/dvorzak.xkb $DISPLAY
 
+GLOVE80=$(xinput list --id-only "MoErgo Glove80 Left Keyboard" 2> /dev/null )
+
+if [[ $GLOVE80 -gt 0 ]]; then
+	xkbcomp -w 1 -i $GLOVE80 -I$XKBDIR $XKBDIR/dvorzak_glove80.xkb $DISPLAY
+fi
+
 # Print layout
 # xkbcomp -I$XKBDIR $XKBDIR/dvorzak.xkb - | xkbprint - - | ps2pdf - > dvorzak.pdf
 
 # By using an additional argument like "-i 15",
 # the change will only apply to a specific keyboard.
 # Look at the output of "xinput"
+
+# Set faster key repetition.
+xset r rate 220 40

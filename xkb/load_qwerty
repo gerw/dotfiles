@@ -1,0 +1,5 @@
+#!/bin/bash
+setxkbmap de
+
+# Set faster key repetition.
+xset r rate 220 40
