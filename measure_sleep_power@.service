@@ -1,0 +1,15 @@
+# /etc/systemd/system/measure_sleep_power@.service
+[Unit]
+Description=Measure sleep power hook
+Before=sleep.target
+StopWhenUnneeded=yes
+
+[Service]
+User=%I
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/home/%I/dotfiles/bin/measure_sleep_power suspend
+ExecStop=/home/%I/dotfiles/bin/measure_sleep_power resume
+
+[Install]
+WantedBy=sleep.target

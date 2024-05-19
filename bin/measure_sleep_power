@@ -1,0 +1,24 @@
+#!/bin/bash
+
+ENERGY=$(cat /sys/class/power_supply/BAT0/energy_now)
+TIME=$(date +%s)
+
+FILE="$HOME/.cache/measure_sleep_power.txt"
+
+if [[ $1 == "suspend" ]]; then
+	echo "Suspend $TIME $ENERGY" >> $FILE
+elif [[ $1 == "resume" ]]; then
+	read SLEEP SLEEP_TIME SLEEP_ENERGY < <(tail -n 1 $FILE)
+
+	ENERGY_USED=$(echo "scale=2; ($SLEEP_ENERGY - $ENERGY)/1000000." | bc) # in Wh
+	TIME_DIFF=$(echo "$TIME - $SLEEP_TIME" | bc) # in seconds
+	TIME_DIFF_HOURS=$(echo "scale=2; $TIME_DIFF / 3600." | bc) # in h
+	POWER_USED=$(echo "scale=3; $ENERGY_USED * 3600 / $TIME_DIFF" | bc) # in W
+
+	echo "Resume $TIME $ENERGY" >> $FILE
+
+	DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/$(id -u)/bus \
+		dunstify -a sleep_report "Sleep report" "I slept for ${TIME_DIFF_HOURS}h with an average power consumption of ${POWER_USED}W." \
+		-h string:x-dunst-stack-tag:sleep_report \
+		-i weather-clear-night-symbolic
+fi
