@@ -1,0 +1,114 @@
+#!/bin/python3
+
+from functools import partial
+from gi.repository import GLib
+
+from udiskie.async_ import ensure_future, run_bg
+from udiskie.config import Config
+from udiskie.mount import Mounter, DeviceActions, prune_empty_node
+from udiskie.prompt import password
+from udiskie.udisks2 import Daemon
+
+import subprocess
+import sys
+import traceback
+
+class UDiskieDmenu:
+	def __init__(self, args):
+		self.args = args
+
+	def run(self):
+		"""Run the main loop. Returns exit code."""
+		self.exit_code = 1
+		self.mainloop = GLib.MainLoop()
+		try:
+			future = ensure_future(self._start_async_tasks())
+			future.callbacks.append(self.set_exit_code)
+			self.mainloop.run()
+			return self.exit_code
+		except KeyboardInterrupt:
+			return 1
+
+	def set_exit_code(self, exit_code):
+		self.exit_code = exit_code
+
+	async def _start_async_tasks(self):
+		"""Start asynchronous operations."""
+		try:
+			udisks = await Daemon.create()
+			results = await self.arun(udisks)
+			return 0 if results else 1
+		except Exception:
+			traceback.print_exc()
+			return 1
+		finally:
+			self.mainloop.quit()
+
+	async def arun(self, udisks):
+		prompt = password("builtin:gui")
+		mounter = Mounter(config=False,prompt=prompt,udisks=udisks)
+
+		device_actions = DeviceActions(mounter, actions={'unlock':partial(mounter.add, recursive=True)})
+
+		root = device_actions.detect()
+		prune_empty_node(root, set())
+
+		success = False
+
+		s = []
+		for b in root.branches:
+			s.extend(self.tree_to_list(b))
+
+		args = ['dmenu']
+		args.extend(self.args)
+
+		if len(s) > 0:
+			proc = subprocess.Popen(
+					args,
+					stdin=subprocess.PIPE,
+					stdout=subprocess.PIPE,
+					stderr=subprocess.PIPE)
+
+			with proc.stdin:
+				for item in s:
+					proc.stdin.write(item[0].encode('utf8'))
+
+			if proc.wait() == 0:
+				# user made a selection
+
+				while l := proc.stdout.readline():
+					ld = l.decode('utf8')
+
+					for item in s:
+						if item[0] == ld:
+							if item[1] is not None:
+								await run_bg(item[1])()
+								success = True
+							break
+
+		return success
+
+	def tree_to_list(self, root, indent=""):
+		res = [(indent + root.label + '\n',None)]
+
+		new_indent = indent + "  "
+
+		methods = []
+		for m in root.methods:
+			methods.append((new_indent + m.label + '\n', m.action))
+
+		branches = []
+		for b in root.branches:
+			branches.extend(self.tree_to_list(b, new_indent))
+
+		res.extend(methods)
+		if len(methods) and len(branches):
+			res.append((new_indent + "=====\n",None))
+		res.extend(branches)
+
+		return res
+
+if __name__ == "__main__":
+	ud = UDiskieDmenu(sys.argv[1:])
+	res = ud.run()
+	sys.exit(res)
