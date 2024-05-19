@@ -1,13 +1,11 @@
 # Load dvorzak layout
-if [ -e $HOME/dotfiles/bin/load_dvorzak ]; then
-	$HOME/dotfiles/bin/load_dvorzak
-fi
+load_dvorzak &
 
 # Faster key repetition.
-xset r rate 220 40
+xset r rate 220 40 &
 
 # Turn on numlock
-numlockx on
+numlockx on &
 
 # Load my xmodmap
 # Should be sourced automatically?
@@ -23,3 +21,8 @@ if [ -x /usr/bin/feh ]; then
 		feh --bg-fill $(sort -R <(for i in /usr/share/wallpapers/*/contents/images/; do ls -1r "$i"* | head -n1;  done)) &
 	fi
 fi
+
+check_battery.sh &
+udiskie --notify --no-automount &
+dunst &
+nm-applet &
