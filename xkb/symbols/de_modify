@@ -1,0 +1,6 @@
+default
+xkb_symbols "basic" {
+	name[Group1]= "de modifications";
+
+	key <AE12> { [ acute, grave,  dead_acute, dead_grave ] };
+};
