@@ -6,6 +6,9 @@ GLOVE80=$(xinput list --id-only "MoErgo Glove80 Left Keyboard" 2> /dev/null )
 
 if [[ $GLOVE80 -gt 0 ]]; then
 	xkbcomp -w 1 -i $GLOVE80 -I$XKBDIR $XKBDIR/dvorzak_glove80.xkb $DISPLAY
+
+	# Using the same keymap for the xtest keyboard works smoother in some cases
+	xkbcomp -w 1 -i 5 -I$XKBDIR $XKBDIR/dvorzak_glove80.xkb $DISPLAY
 fi
 
 # Print layout
