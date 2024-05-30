@@ -2,7 +2,12 @@
 XKBDIR="$HOME/dotfiles/xkb"
 xkbcomp -w 1 -I$XKBDIR $XKBDIR/dvorzak.xkb $DISPLAY
 
+# Via USB
 GLOVE80=$(xinput list --id-only "MoErgo Glove80 Left Keyboard" 2> /dev/null )
+
+if [[ $GLOVE80 -eq 0 ]]; then
+	GLOVE80=$(xinput list --id-only "Glove80 Keyboard" 2> /dev/null )
+fi
 
 if [[ $GLOVE80 -gt 0 ]]; then
 	xkbcomp -w 1 -i $GLOVE80 -I$XKBDIR $XKBDIR/dvorzak_glove80.xkb $DISPLAY
