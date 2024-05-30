@@ -3,4 +3,16 @@ xkb_symbols "basic" {
 	name[Group1]= "de modifications";
 
 	key <AE12> { [ acute, grave,  dead_acute, dead_grave ] };
+
+	// Bind keys F16-F19 such that they can be bound in vim
+	key <I239> { [ F16 ] };
+	key <I240> { [ F17 ] };
+	key <I241> { [ F18 ] };
+	key <I242> { [ F19 ] };
+
+	// Bind keys F21-F24 such that they can be bound in i3
+	key <FK21> { [ F21 ] };
+	key <FK22> { [ F22 ] };
+	key <FK23> { [ F23 ] };
+	key <FK24> { [ F24 ] };
 };
