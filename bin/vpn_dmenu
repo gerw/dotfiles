@@ -1,0 +1,42 @@
+#!/bin/bash
+
+ACTIVE_CONNECTIONS=$(nmcli -t connection show --active | cut -f 1 -d :)
+CONNECTIONS=$(nmcli -t connection show | cut -f 1 -d :)
+
+ACTIONS=""
+
+LINESEP=""
+
+for i in "Home" "BTU intern" "BTU for all"; do
+	if grep "^$i\$" -q <<< "$CONNECTIONS"; then
+		if grep "^$i\$" -q <<< "$ACTIVE_CONNECTIONS"; then
+			ACTIONS="$ACTIONS${LINESEP}Deactivate $i"
+		else                 
+			ACTIONS="$ACTIONS${LINESEP}Activate   $i"
+		fi
+		LINESEP="\n"
+	fi
+done
+
+CHOICE=$( echo -e "$ACTIONS" | dmenu -l 10 -b "$@" )
+
+case $CHOICE in
+	"Activate   Home")
+		nmcli connection up Home
+	;;
+	"Deactivate Home")
+		nmcli connection down Home
+	;;
+	"Activate   BTU intern")
+		( pass show BTU/Zertifikat ; echo "Anmeldung mit Zert" ) | nmcli connection up --ask BTU\ intern
+	;;
+	"Deactivate BTU intern")
+		nmcli connection down "BTU intern"
+	;;
+	"Activate   BTU for all")
+		( echo -e "Anmeldung mit BTU-Account\nwachsmut"; pass show Online/BTU ) | nmcli connection up --ask BTU\ for\ all 
+		;;
+	"Deactivate BTU for all")
+		nmcli connection down "BTU for all"
+	;;
+esac
