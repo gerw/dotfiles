@@ -257,7 +257,7 @@ set $update_i3status killall -SIGUSR1 i3status
 # bindsym XF86AudioLowerVolume exec "amixer -q set Master 5%- unmute && $update_i3status"
 # bindsym XF86AudioMute exec "amixer set Speaker unmute ; amixer set Headphone unmute ; amixer set Master toggle && $update_i3status"
 bindsym XF86AudioRaiseVolume exec "change_volume.sh +5%"
-bindsym XF86AudioLowerVolume exec "change_volume.sh +5%"
+bindsym XF86AudioLowerVolume exec "change_volume.sh -5%"
 bindsym XF86AudioMute exec "change_volume.sh toggle_mute"
 
 
