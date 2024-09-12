@@ -5,5 +5,8 @@ bind 'set mark-symlinked-directories on'
 complete -f -X '!*.@(?(la)tex|?(LA)TEX|texi|TEXI|dtx|DTX|ins|INS|ltx|LTX)' xmakepdf
 complete -f -X '!*.@(?(la)tex|?(LA)TEX|texi|TEXI|dtx|DTX|ins|INS|ltx|LTX)' latexmk
 
+# Completion for biber
+complete -f -X '!*.bcf' biber
+
 # Do not edit *.pyc files with gvim
 complete -F _filedir_xspec -X '*.pyc' gvim
