@@ -32,8 +32,8 @@ fi
 if [ -d "/opt/maple2023/bin" ] ; then
 	PATH="/opt/maple2023/bin:$PATH"
 fi
-if [ -d "$HOME/local/typo3_remote" ] ; then
-	export PYTHONPATH="$HOME/local/typo3_remote:$PYTHONPATH"
+if [ -d "$HOME/local/src/typo3_remote" ] ; then
+	export PYTHONPATH="$HOME/local/src/typo3_remote:$PYTHONPATH"
 fi
 
 if [ -d "$HOME/local/lib" ] ; then
