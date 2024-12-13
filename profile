@@ -36,9 +36,17 @@ if [ -d "$HOME/local/src/typo3_remote" ] ; then
 	export PYTHONPATH="$HOME/local/src/typo3_remote:$PYTHONPATH"
 fi
 
+if [ -d "$HOME/local/lib/pkgconfig" ] ; then
+	export PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig:$PKG_CONFIG_PATH
+fi
+
+# Due to a bug, we cannot set LD_LIBRARY_PATH in .profile in ubuntu, see
+#   https://bugs.launchpad.net/ubuntu/+source/openssh/+bug/47958
+#   https://bugs.launchpad.net/ubuntu/+source/xorg/+bug/366728
+# There, one can find a workaround.
+# See /etc/X11/Xsession.d/89preserve_ld_library_path
 if [ -d "$HOME/local/lib" ] ; then
 	export LD_LIBRARY_PATH="$HOME/local/lib:$LD_LIBRARY_PATH"
-	export PKG_CONFIG_PATH=$HOME/local/lib/pkgconfig:$PKG_CONFIG_PATH
 fi
 
 # Source the okular prefix
