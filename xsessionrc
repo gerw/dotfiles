@@ -4,6 +4,9 @@ load_dvorzak &
 # Turn on numlock
 numlockx on &
 
+# Turn of system beep
+xset -b
+
 # Load my xmodmap
 # Should be sourced automatically?
 # xmodmap $HOME/.Xmodmap
