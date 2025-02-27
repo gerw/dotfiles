@@ -6,10 +6,9 @@ msgTag="mybattery"
 IFS=,
 
 while true; do
-	BATTERY_INFO=($(acpi))
+	BATTERY_INFO=($(acpi | grep -v unavailable))
 	BATTERY_POWER=${BATTERY_INFO[1]# }
 	BATTERY_POWER=${BATTERY_POWER%\%}
-	WARN_FLAG=0
 
 	if [[ "${BATTERY_INFO[0]#*: }" == "Discharging" ]]; then
 		unset BATTERY_INFO[0]
