@@ -7,6 +7,14 @@ ACTIONS=""
 
 LINESEP=""
 
+connect_vpn() {
+	( \
+		echo -e "Anmeldung mit BTU-Account\nwachsmut"; \
+		pass show Online/BTU; \
+		pass show 2FA/BTU | python3 -c 'import pyotp,fileinput; print(pyotp.TOTP(input()).now())' \
+	) | nmcli connection up --ask "$1"
+}
+
 for i in "Home" "BTU intern" "BTU for all"; do
 	if grep "^$i\$" -q <<< "$CONNECTIONS"; then
 		if grep "^$i\$" -q <<< "$ACTIVE_CONNECTIONS"; then
@@ -28,13 +36,15 @@ case $CHOICE in
 		nmcli connection down Home
 	;;
 	"Activate   BTU intern")
-		( pass show BTU/Zertifikat ; echo "Anmeldung mit Zert" ) | nmcli connection up --ask BTU\ intern
+		connect_vpn "BTU intern"
+		# ( pass show BTU/Zertifikat ; echo "Anmeldung mit Zert" ) | nmcli connection up --ask BTU\ intern
 	;;
 	"Deactivate BTU intern")
 		nmcli connection down "BTU intern"
 	;;
 	"Activate   BTU for all")
-		( echo -e "Anmeldung mit BTU-Account\nwachsmut"; pass show Online/BTU ) | nmcli connection up --ask BTU\ for\ all 
+		connect_vpn "BTU for all"
+
 		;;
 	"Deactivate BTU for all")
 		nmcli connection down "BTU for all"
