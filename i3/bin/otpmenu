@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+shopt -s nullglob globstar
+
+prefix=${PASSWORD_STORE_DIR-~/.password-store/2FA}
+password_files=( "$prefix"/**/*.gpg )
+password_files=( "${password_files[@]#"$prefix"/}" )
+password_files=( "${password_files[@]%.gpg}" )
+
+password=$(printf '%s\n' "${password_files[@]}" | dmenu "$@")
+
+[[ -n $password ]] || exit
+
+pass show "2FA/$password" | \
+	python3 -c 'import pyotp,fileinput; print(pyotp.TOTP(input()).now(), end="")' | \
+	xdotool type --clearmodifiers --file -

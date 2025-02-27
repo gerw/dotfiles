@@ -66,6 +66,9 @@ bindsym $mod+Shift+u exec --no-startup-id udiskie_dmenu -b -l 10 $dmenupara
 # Call a dmenu wrapper for vpn connections
 bindsym $mod+Shift+v exec --no-startup-id vpn_dmenu -b -l 10 $dmenupara
 
+# Call a dmenu wrapper for otp passwords
+bindsym $mod+Shift+o exec --no-startup-id otpmenu $dmenupara
+
 ##
 
 # change focus
