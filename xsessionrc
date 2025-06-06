@@ -1,15 +1,5 @@
-# Load dvorzak layout
-load_dvorzak &
-
-# Turn on numlock
-numlockx on &
-
 # Turn of system beep
 xset -b
-
-# Load my xmodmap
-# Should be sourced automatically?
-# xmodmap $HOME/.Xmodmap
 
 # Load a random wallpaper
 if [ -x /usr/bin/feh ]; then
@@ -26,3 +16,9 @@ check_battery.sh &
 udiskie --notify --no-automount &
 dunst &
 nm-applet &
+
+# Load dvorzak layout (with short delay)
+sleep 1 && load_dvorzak &
+
+# Turn on numlock
+numlockx on &
