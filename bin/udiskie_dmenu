@@ -4,7 +4,7 @@ from functools import partial
 from gi.repository import GLib
 
 from udiskie.async_ import ensure_future, run_bg
-from udiskie.config import Config
+from udiskie.config import DeviceFilter
 from udiskie.mount import Mounter, DeviceActions, prune_empty_node
 from udiskie.prompt import password
 from udiskie.udisks2 import Daemon
@@ -46,7 +46,8 @@ class UDiskieDmenu:
 
 	async def arun(self, udisks):
 		prompt = password("builtin:gui")
-		mounter = Mounter(config=False,prompt=prompt,udisks=udisks)
+		config = [DeviceFilter({"id_type": "squashfs", "ignore": True})]
+		mounter = Mounter(config=config, prompt=prompt, udisks=udisks)
 
 		device_actions = DeviceActions(mounter, actions={'unlock':partial(mounter.add, recursive=True)})
 
