@@ -8,3 +8,6 @@ i3/src/i3_vim_focus
 
 # Generated config
 i3/config
+
+# Temporary layout file
+i3/latex_config_tmp
