@@ -50,8 +50,8 @@ xkb_symbols "basic" {
 	key <AE11> { [ slash,     equal,     acute, dead_acute ] };
 	key <AE12> { [ backslash, question,  grave, dead_grave ] };
 
-	key <AD01> { [ udiaeresis, Udiaeresis, guillemotright ] };
-	key <AD02> { [ comma, less, guillemotleft             ] };
+	key <AD01> { [ udiaeresis, Udiaeresis                 ] };
+	key <AD02> { [ comma, less, slash                     ] };
 	key <AD03> { [ period, greater, braceleft             ] };
 	key <AD04> { [ p, P, braceright                       ] };
 	key <AD05> { [ y, Y                                   ] };
