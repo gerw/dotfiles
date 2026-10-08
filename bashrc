@@ -149,3 +149,9 @@ fi
 if [ "x$TERM" = "xxterm" ]; then
 	trap term-recolor-current.sh USR1
 fi
+
+# Hook direnv into bash
+if command -v direnv > /dev/null 2>&1; then
+	eval "$(direnv hook bash)"
+fi
+
