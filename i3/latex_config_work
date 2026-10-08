@@ -77,7 +77,8 @@
     "swallows": [
        {
           "class": "^(Zathura|[Oo]kular)$",
-          "instance": "^(zathura|[Oo]kular)$"
+          "instance": "^(zathura|[Oo]kular)$",
+          "title": ""
        }
     ],
     "type": "con"
