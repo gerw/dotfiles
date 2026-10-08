@@ -19,6 +19,9 @@ function _my_colorscheme()
 	return cs
 end
 
+# https://github.com/KristofferC/OhMyREPL.jl/issues/345#issuecomment-2397745411
+using Pkg: Pkg
+
 atreplinit() do repl
 	@eval using Revise
 	@eval using OhMyREPL
