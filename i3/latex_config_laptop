@@ -103,9 +103,8 @@
     "swallows": [
        {
           "class": "^(Zathura|[Oo]kular)$",
-          "instance": "^(zathura|[Oo]kular)$"
-       // "title": "^test\\.pdf$",
-       // "transient_for": "^$"
+          "instance": "^(zathura|[Oo]kular)$",
+          "title": ""
        }
     ],
     "type": "con"
