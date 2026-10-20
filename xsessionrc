@@ -1,6 +1,12 @@
 # Turn of system beep
 xset -b
 
+if [ "$HOSTNAME" = "glap0" ]; then
+	# Turn of DPMS
+	xset dpms 0 0 0
+	xset s 0 0
+fi
+
 # Load a random wallpaper
 if [ -x /usr/bin/feh ]; then
 	if [ -d /usr/share/backgrounds/archlinux/ ]; then
